@@ -13,5 +13,5 @@ export default Wrapper;
 Wrapper.propTypes = {
   children: PT.node.isRequired,
   styles: PT.string,
-  otherProps: PT.node,
+  otherProps: PT.object,
 }
