@@ -24,12 +24,11 @@ export default function App() {
     }
   }, []);
 
-  useEffect(() => {
-    if (contacts !== null) {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    }
-  }, [contacts]);
-
+   useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+   }, [contacts]);
+  
+    
   const handleAddContact = (name, number) => {
     const newContact = { id: nanoid(), name, number };
     const isNameExists = contacts.find(contact => contact.name === name);
@@ -37,7 +36,8 @@ export default function App() {
       alert(`${name} is already in contacts!`);
       return;
     }
-    setContacts( [...contacts, newContact] );
+    const newContacts = [...contacts, newContact];
+    setContacts(newContacts);
   }
 
   const handleFilterChange = (evt) => {
